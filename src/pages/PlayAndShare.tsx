@@ -108,20 +108,20 @@ function PlayAndShare() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-4 py-8 md:px-6 lg:px-8">
-      <header className="rounded-3xl bg-gradient-to-tr from-brand-primary/95 to-brand-secondary/90 p-8 text-white shadow-hero md:p-12">
+      <header className="rounded-3xl bg-surface-primary p-8 shadow-hero md:p-12">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
+            <h1 className="text-3xl font-semibold leading-tight text-text-primary md:text-4xl lg:text-5xl">
               Quest Mode: Scout · Score · Story
             </h1>
-            <p className="mt-3 max-w-2xl text-base text-white/90 md:text-lg">
+            <p className="mt-3 max-w-2xl text-base text-text-secondary md:text-lg">
               Rally your crew, pin a hotspot, rate the experience, and drop a wrapped-style story to
-              flex the night’s flavor arc.
+              flex the night's flavor arc.
             </p>
           </div>
-          <div className="rounded-2xl bg-white/15 px-4 py-3 text-center text-xs uppercase tracking-[0.35em] text-white/80 shadow-inner shadow-black/20 backdrop-blur">
+          <div className="rounded-2xl bg-brand-primary/10 px-4 py-3 text-center text-xs uppercase tracking-[0.35em] text-text-secondary shadow-inner shadow-black/5 backdrop-blur">
             season xp
-            <div className="mt-2 text-2xl font-semibold text-white">{stageScore}</div>
+            <div className="mt-2 text-2xl font-semibold text-text-primary">{stageScore}</div>
           </div>
         </div>
 
@@ -131,22 +131,22 @@ function PlayAndShare() {
               key={step.id}
               type="button"
               onClick={() => setActiveStep(index)}
-              className={`flex flex-1 flex-col gap-1 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-left transition hover:bg-white/15 ${
-                index === activeStep ? "border-white/40 bg-white/20 shadow-lg shadow-black/20" : ""
+              className={`flex flex-1 flex-col gap-1 rounded-2xl border px-4 py-3 text-left transition ${
+                index === activeStep ? "border-brand-primary bg-brand-primary/5 shadow-lg" : "border-surface-border bg-surface-primary hover:border-brand-primary/40"
               }`}
             >
-              <span className="text-xs uppercase tracking-[0.3em] text-white/70">
+              <span className="text-xs uppercase tracking-[0.3em] text-text-secondary">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="text-sm font-semibold text-white">{step.title}</span>
-              <span className="text-xs text-white/80">{step.description}</span>
+              <span className="text-sm font-semibold text-text-primary">{step.title}</span>
+              <span className="text-xs text-text-secondary">{step.description}</span>
             </button>
           ))}
         </div>
 
-        <div className="mt-4 h-2 rounded-full bg-white/20">
+        <div className="mt-4 h-2 rounded-full bg-surface-border">
           <div
-            className="h-full rounded-full bg-white transition-all duration-300 ease-out"
+            className="h-full rounded-full bg-brand-primary transition-all duration-300 ease-out"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -156,10 +156,10 @@ function PlayAndShare() {
         <div className="flex flex-col gap-6 rounded-3xl bg-white p-6 shadow-card md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 className="text-xl font-semibold text-brand-dark md:text-2xl">
+              <h2 className="text-xl font-semibold text-text-primary md:text-2xl">
                 Step {activeStep + 1}: {experienceSteps[activeStep].title}
               </h2>
-              <p className="text-sm text-brand-muted">
+              <p className="text-sm text-text-secondary">
                 {experienceSteps[activeStep].description}
               </p>
             </div>
@@ -181,8 +181,8 @@ function PlayAndShare() {
                   scrollWheelZoom
                 />
               </div>
-              <div className="flex flex-col gap-4 rounded-3xl bg-brand-surface px-5 py-6">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-muted">
+              <div className="flex flex-col gap-4 rounded-3xl bg-surface-primary px-5 py-6">
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-text-secondary">
                   quest picks
                 </span>
                 <ul className="flex flex-col gap-3">
@@ -200,12 +200,12 @@ function PlayAndShare() {
                           }`}
                         >
                           <div className="flex items-center justify-between gap-2">
-                            <span className="text-sm font-semibold text-brand-dark">{place.name}</span>
+                            <span className="text-sm font-semibold text-text-primary">{place.name}</span>
                             <span className="text-xs uppercase tracking-wide text-brand-primary">
                               {isSelected ? "locked in" : "pin"}
                             </span>
                           </div>
-                          <p className="mt-1 text-sm text-brand-muted">{place.description}</p>
+                          <p className="mt-1 text-sm text-text-secondary">{place.description}</p>
                         </button>
                       </li>
                     );
@@ -217,8 +217,8 @@ function PlayAndShare() {
 
           {activeStep === 1 && (
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-3xl border border-brand-muted/20 bg-brand-surface px-6 py-8 shadow-inner">
-                <span className="text-xs uppercase tracking-[0.3em] text-brand-muted">your rate</span>
+              <div className="rounded-3xl border border-surface-border bg-surface-primary px-6 py-8 shadow-inner">
+                <span className="text-xs uppercase tracking-[0.3em] text-text-secondary">your rate</span>
                 <div className="mt-4 flex items-baseline gap-2">
                   <input
                     type="range"
@@ -229,43 +229,43 @@ function PlayAndShare() {
                     onChange={(event) => setRating(Number(event.target.value))}
                     className="flex-1 accent-brand-primary"
                   />
-                  <span className="text-3xl font-semibold text-brand-dark">{rating.toFixed(1)}</span>
-                  <span className="text-sm text-brand-muted">/5</span>
+                  <span className="text-3xl font-semibold text-text-primary">{rating.toFixed(1)}</span>
+                  <span className="text-sm text-text-secondary">/5</span>
                 </div>
-                <p className="mt-4 text-sm text-brand-muted">
+                <p className="mt-4 text-sm text-text-secondary">
                   {selectedHotspot?.name} gets bonus XP when rated above 4.5.
                 </p>
               </div>
 
               <div className="flex flex-col gap-4">
-                <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark">
+                <label className="flex flex-col gap-2 text-sm font-semibold text-text-primary">
                   Mood Tag
                   <input
                     value={moodTag}
                     onChange={(event) => setMoodTag(event.target.value)}
-                    className="rounded-2xl border border-brand-muted/30 bg-white px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                    className="rounded-2xl border border-surface-border bg-white px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
                     placeholder="Vibe Check: Euphoric"
                   />
                 </label>
-                <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark">
+                <label className="flex flex-col gap-2 text-sm font-semibold text-text-primary">
                   Story Caption
                   <textarea
                     rows={3}
                     value={storyCaption}
                     onChange={(event) => setStoryCaption(event.target.value)}
-                    className="resize-none rounded-2xl border border-brand-muted/30 bg-white px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                    className="resize-none rounded-2xl border border-surface-border bg-white px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
                     placeholder="Drop the hook for your story..."
                   />
                 </label>
-                <label className="flex flex-col gap-2 text-sm font-semibold text-brand-dark">
+                <label className="flex flex-col gap-2 text-sm font-semibold text-text-primary">
                   Upload Proof Shot
-                  <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-primary/40 bg-brand-primary/5 px-4 py-8 text-center text-sm text-brand-muted transition hover:border-brand-primary/80 hover:bg-brand-primary/10">
+                  <div className="flex flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-brand-primary/40 bg-brand-primary/5 px-4 py-8 text-center text-sm text-text-secondary transition hover:border-brand-primary/80 hover:bg-brand-primary/10">
                     <input type="file" accept="image/*" onChange={handleFileInput} className="sr-only" />
                     <span className="pointer-events-none select-none">
                       Drag &amp; drop or <span className="font-semibold text-brand-primary">browse</span>
                     </span>
                     {previewImage && (
-                      <span className="text-xs text-brand-muted">Image locked. Ready for the story.</span>
+                      <span className="text-xs text-text-secondary">Image locked. Ready for the story.</span>
                     )}
                   </div>
                 </label>
@@ -331,8 +331,8 @@ function PlayAndShare() {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-5 rounded-3xl bg-brand-surface px-5 py-6">
-                <span className="text-xs uppercase tracking-[0.3em] text-brand-muted">styling boosts</span>
+              <div className="flex flex-col gap-5 rounded-3xl bg-surface-primary px-5 py-6">
+                <span className="text-xs uppercase tracking-[0.3em] text-text-secondary">styling boosts</span>
                 <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-2">
                   {gradientThemes.map((option) => {
                     const isActive = option.id === gradientId;
@@ -352,14 +352,14 @@ function PlayAndShare() {
                   })}
                 </div>
 
-                <div className="rounded-2xl border border-brand-muted/20 bg-white px-4 py-3 text-sm text-brand-muted shadow-inner">
+                <div className="rounded-2xl border border-surface-border bg-white px-4 py-3 text-sm text-text-secondary shadow-inner">
                   Complete the drop to push your crew up the nightly leaderboard. Mondays reset at 5pm.
                 </div>
               </div>
             </div>
           )}
 
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-brand-surface px-4 py-3 text-sm text-brand-muted">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-surface-primary px-4 py-3 text-sm text-text-secondary">
             <span>
               Mission log · {selectedHotspot?.name ?? "Choose a spot"} ·{" "}
               {new Date().toLocaleDateString(undefined, {
@@ -371,7 +371,7 @@ function PlayAndShare() {
               <button
                 type="button"
                 onClick={() => setActiveStep(Math.max(activeStep - 1, 0))}
-                className="rounded-full border border-brand-muted/40 px-4 py-1.5 transition hover:border-brand-primary hover:text-brand-primary"
+                className="rounded-full border border-surface-border px-4 py-1.5 transition hover:border-brand-primary hover:text-brand-primary"
               >
                 Back
               </button>
@@ -388,41 +388,41 @@ function PlayAndShare() {
 
         <aside className="flex flex-col gap-6 rounded-3xl bg-white p-6 shadow-card md:p-8">
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-brand-dark">Quest Feed</h3>
-            <p className="text-sm text-brand-muted">
-              Gamified timeline that logs your squad’s flavor adventures.
+            <h3 className="text-lg font-semibold text-text-primary">Quest Feed</h3>
+            <p className="text-sm text-text-secondary">
+              Gamified timeline that logs your squad's flavor adventures.
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 rounded-3xl border border-brand-muted/20 bg-brand-surface px-5 py-5">
-            <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-brand-muted">
+          <div className="flex flex-col gap-4 rounded-3xl border border-surface-border bg-surface-primary px-5 py-5">
+            <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-text-secondary">
               <span>crew heat</span>
               <span>{stageScore + 240} total xp</span>
             </div>
             <ul className="flex flex-col gap-3 text-sm">
               <li className="rounded-2xl bg-white px-4 py-3 shadow-card">
-                <strong className="text-brand-dark">Nova</strong> locked{" "}
+                <strong className="text-text-primary">Nova</strong> locked{" "}
                 <span className="text-brand-primary">{selectedHotspot?.name ?? "?"}</span> · rated{" "}
                 <strong>{rating.toFixed(1)}</strong> · unlocked <strong>{stageScore} XP</strong>.
               </li>
               <li className="rounded-2xl bg-white px-4 py-3 shadow-card">
-                <strong className="text-brand-dark">Atlas</strong> boosted story optics with <em>{moodTag}</em>.
+                <strong className="text-text-primary">Atlas</strong> boosted story optics with <em>{moodTag}</em>.
               </li>
               <li className="rounded-2xl bg-white px-4 py-3 shadow-card">
-                <strong className="text-brand-dark">You</strong> dropped{" "}
+                <strong className="text-text-primary">You</strong> dropped{" "}
                 <span className="text-brand-primary">{activeGradient.name}</span> theme.
               </li>
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-brand-muted/20 bg-brand-surface px-4 py-5 text-sm text-brand-dark">
+          <div className="rounded-3xl border border-surface-border bg-surface-primary px-4 py-5 text-sm text-text-primary">
             <div className="flex items-center justify-between">
               <span className="font-semibold">Daily Combo Bonus</span>
               <span className="rounded-full bg-brand-primary/10 px-3 py-1 text-xs font-semibold text-brand-primary">
                 +15%
               </span>
             </div>
-            <p className="mt-2 text-brand-muted">
+            <p className="mt-2 text-text-secondary">
               Hit a new hotspot, rate above 4, and publish a story to multiply XP. Bonus refreshes nightly.
             </p>
           </div>

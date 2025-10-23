@@ -11,25 +11,25 @@ type GradientOption = {
 
 const gradients: GradientOption[] = [
   {
-    id: "citrus-sunset",
-    name: "Citrus Sunset",
+    id: "orange-sunset",
+    name: "Orange Sunset",
     description: "Bold orange fade with violet glow",
-    className: "from-brand-primary via-[#f97316] to-[#7c3aed]",
-    sample: "bg-gradient-to-br from-brand-primary via-[#f97316] to-[#7c3aed]"
+    className: "from-wrapped-sunrise-start to-wrapped-sunrise-end",
+    sample: "bg-gradient-to-br from-wrapped-sunrise-start to-wrapped-sunrise-end"
   },
   {
     id: "neon-city",
     name: "Neon City",
     description: "Electric magenta meets midnight teal",
-    className: "from-[#ec4899] via-[#8b5cf6] to-[#0ea5e9]",
-    sample: "bg-gradient-to-br from-[#ec4899] via-[#8b5cf6] to-[#0ea5e9]"
+    className: "from-wrapped-nightout-start to-wrapped-nightout-end",
+    sample: "bg-gradient-to-br from-wrapped-nightout-start to-wrapped-nightout-end"
   },
   {
     id: "matcha-vibe",
     name: "Matcha Vibe",
     description: "Fresh greens with citrus highlight",
-    className: "from-[#22c55e] via-[#10b981] to-[#fde047]",
-    sample: "bg-gradient-to-br from-[#22c55e] via-[#10b981] to-[#fde047]"
+    className: "from-wrapped-freshfind-start to-wrapped-freshfind-end",
+    sample: "bg-gradient-to-br from-wrapped-freshfind-start to-wrapped-freshfind-end"
   }
 ];
 
@@ -47,7 +47,7 @@ function InstaMVP() {
   const [highlight, setHighlight] = useState(defaultData.highlight);
   const [secondary, setSecondary] = useState(defaultData.secondary);
   const [footer, setFooter] = useState(defaultData.footer);
-  const [gradientId, setGradientId] = useState<GradientOption["id"]>("citrus-sunset");
+  const [gradientId, setGradientId] = useState<GradientOption["id"]>("orange-sunset");
   const [photo, setPhoto] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -96,11 +96,11 @@ function InstaMVP() {
 
   return (
     <div className="mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-4 py-8 md:px-6 lg:px-8">
-      <header className="rounded-3xl bg-gradient-to-tr from-brand-primary/95 to-brand-secondary/90 p-8 text-white shadow-hero md:p-12">
-        <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
+      <header className="rounded-3xl bg-surface-primary p-8 shadow-hero md:p-12">
+        <h1 className="text-3xl font-semibold leading-tight text-text-primary md:text-4xl lg:text-5xl">
           Your Story. Wrapped.
         </h1>
-        <p className="mt-3 max-w-2xl text-base text-white/90 md:text-lg">
+        <p className="mt-3 max-w-2xl text-base text-text-secondary md:text-lg">
           Upload a snapshot, tailor the captions, and export an Instagram-ready story that captures
           tonight&apos;s foodie vibe.
         </p>
@@ -110,8 +110,8 @@ function InstaMVP() {
         <div className="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-card md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 className="text-xl font-semibold text-brand-dark md:text-2xl">Story Preview</h2>
-              <p className="text-sm text-brand-muted">
+              <h2 className="text-xl font-semibold text-text-primary md:text-2xl">Story Preview</h2>
+              <p className="text-sm text-text-secondary">
                 9:16 format, perfect for Instagram Stories and Reels covers.
               </p>
             </div>
@@ -184,7 +184,7 @@ function InstaMVP() {
               </div>
             </div>
 
-            <p className="mt-4 text-center text-xs text-brand-muted">
+            <p className="mt-4 text-center text-xs text-text-secondary">
               Tip: Long-press or use the download button to share your story on Instagram.
             </p>
           </div>
@@ -192,16 +192,16 @@ function InstaMVP() {
 
         <aside className="flex flex-col gap-6 rounded-3xl bg-white p-6 shadow-card md:p-8">
           <div className="space-y-1">
-            <h3 className="text-lg font-semibold text-brand-dark">Customize the vibe</h3>
-            <p className="text-sm text-brand-muted">
+            <h3 className="text-lg font-semibold text-text-primary">Customize the vibe</h3>
+            <p className="text-sm text-text-secondary">
               Swap gradients, rewrite captions, and drop in a photo to make it yours.
             </p>
           </div>
 
           <div className="space-y-4">
-            <label className="block text-sm font-medium text-brand-dark">
+            <label className="block text-sm font-medium text-text-primary">
               Upload spotlight photo
-              <span className="mt-2 flex items-center justify-center rounded-2xl border border-dashed border-brand-primary/40 bg-brand-primary/5 px-4 py-6 text-center text-sm text-brand-muted transition hover:border-brand-primary/80 hover:bg-brand-primary/10">
+              <span className="mt-2 flex items-center justify-center rounded-2xl border border-dashed border-brand-primary/40 bg-brand-primary/5 px-4 py-6 text-center text-sm text-text-secondary transition hover:border-brand-primary/80 hover:bg-brand-primary/10">
                 <input
                   type="file"
                   accept="image/*"
@@ -212,66 +212,66 @@ function InstaMVP() {
                   Drag & drop, or <span className="font-semibold text-brand-primary">choose file</span>
                 </span>
               </span>
-              <span className="mt-1 block text-xs text-brand-muted">
+              <span className="mt-1 block text-xs text-text-secondary">
                 High-resolution vertical shots look best.
               </span>
             </label>
           </div>
 
           <div className="space-y-4">
-            <label className="block text-sm font-semibold text-brand-dark">
+            <label className="block text-sm font-semibold text-text-primary">
               Instagram handle
               <input
                 value={handle}
                 onChange={(event) => setHandle(event.target.value)}
                 placeholder="@yourhandle"
-                className="mt-2 w-full rounded-2xl border border-brand-muted/30 bg-brand-surface px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                className="mt-2 w-full rounded-2xl border border-surface-border bg-surface-primary px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-brand-dark">
+            <label className="block text-sm font-semibold text-text-primary">
               Headline
               <input
                 value={headline}
                 onChange={(event) => setHeadline(event.target.value)}
                 placeholder="Your Flavor Story"
-                className="mt-2 w-full rounded-2xl border border-brand-muted/30 bg-brand-surface px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                className="mt-2 w-full rounded-2xl border border-surface-border bg-surface-primary px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-brand-dark">
+            <label className="block text-sm font-semibold text-text-primary">
               Highlight
               <input
                 value={highlight}
                 onChange={(event) => setHighlight(event.target.value)}
                 placeholder="Top Bite: Skyline Sushi"
-                className="mt-2 w-full rounded-2xl border border-brand-muted/30 bg-brand-surface px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                className="mt-2 w-full rounded-2xl border border-surface-border bg-surface-primary px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-brand-dark">
+            <label className="block text-sm font-semibold text-text-primary">
               Secondary shout-out
               <input
                 value={secondary}
                 onChange={(event) => setSecondary(event.target.value)}
                 placeholder="Hidden Gem: Coffee Lab"
-                className="mt-2 w-full rounded-2xl border border-brand-muted/30 bg-brand-surface px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                className="mt-2 w-full rounded-2xl border border-surface-border bg-surface-primary px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
             </label>
 
-            <label className="block text-sm font-semibold text-brand-dark">
+            <label className="block text-sm font-semibold text-text-primary">
               Footer note
               <input
                 value={footer}
                 onChange={(event) => setFooter(event.target.value)}
                 placeholder="Share your wrapped night 🔥"
-                className="mt-2 w-full rounded-2xl border border-brand-muted/30 bg-brand-surface px-4 py-3 text-sm text-brand-dark outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
+                className="mt-2 w-full rounded-2xl border border-surface-border bg-surface-primary px-4 py-3 text-sm text-text-primary outline-none transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
             </label>
           </div>
 
           <div className="space-y-3">
-            <span className="block text-sm font-semibold text-brand-dark">Color story</span>
+            <span className="block text-sm font-semibold text-text-primary">Color story</span>
             <div className="grid gap-3 sm:grid-cols-3">
               {gradients.map((option) => (
                 <button

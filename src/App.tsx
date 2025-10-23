@@ -3,6 +3,7 @@ import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 
 const FoodExplorer = lazy(() => import("./pages/FoodExplorer"));
 const InstaMVP = lazy(() => import("./pages/InstaMVP"));
+const PlayAndShare = lazy(() => import("./pages/PlayAndShare"));
 
 const navLinkBase =
   "rounded-full px-4 py-2 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary";
@@ -43,6 +44,16 @@ function App() {
           >
             InstaMVP
           </NavLink>
+          <NavLink
+            to="/play"
+            className={({ isActive }) =>
+              `${navLinkBase} ${
+                isActive ? "bg-brand-primary text-white" : "text-brand-muted hover:bg-brand-surface"
+              }`
+            }
+          >
+            Quest Mode
+          </NavLink>
         </div>
       </nav>
 
@@ -57,6 +68,7 @@ function App() {
           <Routes>
             <Route path="/" element={<FoodExplorer />} />
             <Route path="/instamvp" element={<InstaMVP />} />
+            <Route path="/play" element={<PlayAndShare />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>

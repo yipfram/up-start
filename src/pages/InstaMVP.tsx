@@ -278,14 +278,16 @@ function InstaMVP() {
                   key={option.id}
                   type="button"
                   onClick={() => setGradientId(option.id)}
-                  className={`relative flex h-28 flex-col justify-end rounded-3xl p-4 text-left text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary ${
-                    gradientId === option.id ? "ring-2 ring-white ring-offset-2 ring-offset-brand-primary" : ""
+                  className={`relative flex h-28 flex-col justify-end rounded-3xl p-4 text-left text-white transition ${
+                    gradientId === option.id
+                      ? "ring-4 ring-brand-primary shadow-lg scale-105"
+                      : "ring-2 ring-surface-border hover:ring-brand-primary/40 hover:shadow-md"
                   } ${option.sample}`}
                 >
-                  <span className="text-xs font-semibold uppercase tracking-wide">
+                  <span className="relative z-10 text-xs font-semibold uppercase tracking-wide drop-shadow-md">
                     {option.name}
                   </span>
-                  <span className="text-[0.7rem] leading-tight text-white/90">
+                  <span className="relative z-10 text-[0.7rem] leading-tight text-white/90 drop-shadow">
                     {option.description}
                   </span>
                 </button>

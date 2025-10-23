@@ -13,23 +13,23 @@ const gradients: GradientOption[] = [
   {
     id: "orange-sunset",
     name: "Orange Sunset",
-    description: "Bold orange fade with violet glow",
-    className: "from-wrapped-sunrise-start to-wrapped-sunrise-end",
-    sample: "bg-gradient-to-br from-wrapped-sunrise-start to-wrapped-sunrise-end"
+    description: "Bold orange fade with golden glow",
+    className: "from-[#F25C3D] to-[#FFC947]",
+    sample: "bg-gradient-to-br from-[#F25C3D] to-[#FFC947]"
   },
   {
     id: "neon-city",
     name: "Neon City",
-    description: "Electric magenta meets midnight teal",
-    className: "from-wrapped-nightout-start to-wrapped-nightout-end",
-    sample: "bg-gradient-to-br from-wrapped-nightout-start to-wrapped-nightout-end"
+    description: "Purple twilight meets pink energy",
+    className: "from-[#372772] to-[#E03FAC]",
+    sample: "bg-gradient-to-br from-[#372772] to-[#E03FAC]"
   },
   {
     id: "matcha-vibe",
     name: "Matcha Vibe",
-    description: "Fresh greens with citrus highlight",
-    className: "from-wrapped-freshfind-start to-wrapped-freshfind-end",
-    sample: "bg-gradient-to-br from-wrapped-freshfind-start to-wrapped-freshfind-end"
+    description: "Fresh greens with mint highlight",
+    className: "from-[#2A8C4A] to-[#88F1B6]",
+    sample: "bg-gradient-to-br from-[#2A8C4A] to-[#88F1B6]"
   }
 ];
 

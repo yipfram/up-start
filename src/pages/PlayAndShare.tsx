@@ -125,21 +125,29 @@ function PlayAndShare() {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center gap-4">
+        <div className="mt-6 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
           {experienceSteps.map((step, index) => (
             <button
               key={step.id}
               type="button"
               onClick={() => setActiveStep(index)}
-              className={`flex flex-1 flex-col gap-1 rounded-2xl border px-4 py-3 text-left transition ${
-                index === activeStep ? "border-brand-primary bg-brand-primary/5 shadow-lg" : "border-surface-border bg-surface-primary hover:border-brand-primary/40"
+              className={`flex flex-1 flex-col gap-1 rounded-2xl border-2 px-4 py-3 text-left transition ${
+                index === activeStep
+                  ? "border-brand-primary bg-brand-primary text-white shadow-lg"
+                  : "border-surface-border bg-white hover:border-brand-primary/40 hover:shadow-md"
               }`}
             >
-              <span className="text-xs uppercase tracking-[0.3em] text-text-secondary">
+              <span className={`text-xs uppercase tracking-[0.3em] ${
+                index === activeStep ? "text-white/80" : "text-text-secondary"
+              }`}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="text-sm font-semibold text-text-primary">{step.title}</span>
-              <span className="text-xs text-text-secondary">{step.description}</span>
+              <span className={`text-sm font-semibold ${
+                index === activeStep ? "text-white" : "text-text-primary"
+              }`}>{step.title}</span>
+              <span className={`text-xs ${
+                index === activeStep ? "text-white/90" : "text-text-secondary"
+              }`}>{step.description}</span>
             </button>
           ))}
         </div>
